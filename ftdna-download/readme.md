@@ -3,9 +3,9 @@ ftdna-download.py
 
 Komentoriviohjelma, jolla voi ladata tiedostoja automaattisesti Family Tree DNA:sta.
 
-Käyttää Seleniumia (http://www.seleniumhq.org/) ohjaamaan selainta (esim. Chrome, Firefox). Myös vastaava webdriver (chromedriver tms) pitää asentaa.
+Käyttää Seleniumia (http://www.seleniumhq.org/, https://pypi.python.org/pypi/selenium) ohjaamaan selainta (esim. Chrome, Firefox, Opera, Internet Explorer). Myös vastaava webdriver (chromedriver tms) pitää asentaa.
 
-Lataa ftdna-download.py johonkin hakemistoon. Webdriver-binääri (esim. chromedriver) tulee tallettaa samaan hakemistoon.
+Lataa ftdna-download.py johonkin hakemistoon. Webdriver-binääri (chromedriver, geckodriver, operadriver, IEDriverServer.exe) tulee tallettaa samaan hakemistoon.
 
 <pre>
 usage: python2 ftdna-download.py [-h] [--kit KIT] [--all] [--ff] [--cb] [--37] 
