@@ -118,6 +118,7 @@ if __name__ == "__main__":
     parser.add_argument("--passwords",default="passwords.txt")
     parser.add_argument("--driver",default="./chromedriver")
     parser.add_argument("--downloads-folder",default="$HOME/Downloads")
+    parser.add_argument("--browser",choices=["chrome","firefox","opera","ie"],default="chrome")
     parser.add_argument("--quiet",action="store_true",default=False)
     args = parser.parse_args()
     if args.ff: args.all = False
