@@ -28,9 +28,11 @@ optional arguments:
 Selain tulee konfiguroida niin, että se tekee lataukset automaattisesti hakemistoon Downloads eikä kysy mihin talletetaan. 
 
 Ohjelma lukee tiedostosta "passwords.txt" käytettävät tunnukset ja salasanat. Tiedostossa tulee olla yksi rivi per käyttäjä, muodossa
-  
+
+<pre>
   kitnum password
-  
+</pre>
+
 Oletuksena ohjelma käynnistää Chrome-selaimen ja hakee tiedostot
   
 nnnnnn_Family_Finder_Matches_yyyymmdd.csv
