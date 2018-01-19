@@ -33,7 +33,7 @@ Ohjelma lukee tiedostosta "passwords.txt" käytettävät tunnukset ja salasanat.
   kitnum password
 </pre>
 
-Oletuksena ohjelma käynnistää Chrome-selaimen ja hakee tiedostot
+Oletuksena ohjelma käynnistää Chrome-selaimen ja hakee kaikille passwords.txt-tiedostossa mainituille käyttäjille tiedostot
   
 <pre>  
 nnnnnn_Family_Finder_Matches_yyyymmdd.csv
