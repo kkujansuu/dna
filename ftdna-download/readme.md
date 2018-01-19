@@ -35,9 +35,11 @@ Ohjelma lukee tiedostosta "passwords.txt" käytettävät tunnukset ja salasanat.
 
 Oletuksena ohjelma käynnistää Chrome-selaimen ja hakee tiedostot
   
+<pre>  
 nnnnnn_Family_Finder_Matches_yyyymmdd.csv
 nnnnnn_Chromosome_Browser_Results__yyyymmdd.csv
 nnnnnn_Autosomal_o37_Results_yyyymmdd.csv.gz
+</pre>
 
 Jos haluaa hakea vain jonkin näistä, voi antaa parametrin --ff, --cb tai --37, jolloin haetaan vain vastaava tiedosto.
 Samoin jos haluaa vain jonkin kitin tiedostot, voi kit-numeron antaa parametrissa --kit
