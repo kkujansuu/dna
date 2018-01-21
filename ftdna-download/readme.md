@@ -32,7 +32,7 @@ optional arguments:
 
 </pre>
 
-Selain tulee konfiguroida niin, että se tekee lataukset automaattisesti hakemistoon Downloads eikä kysy mihin talletetaan. 
+Selain tulee konfiguroida niin, että se tekee lataukset automaattisesti hakemistoon Downloads eikä siis kysy mihin talletetaan. 
 
 Ohjelma lukee tiedostosta "passwords.txt" käytettävät tunnukset ja salasanat. Tiedostossa tulee olla yksi rivi per käyttäjä, muodossa
 
