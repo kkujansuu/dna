@@ -10,7 +10,7 @@ Lataa ftdna-download.py johonkin hakemistoon. Webdriver-binääri (chromedriver,
 
 <h4>Käyttö:</h4>
 <pre>
-sage: ftdna-download.py [-h] [--kit KIT] [--all] [--ff] [--cb] [--37]
+Usage: python3 ftdna-download.py [-h] [--kit KIT] [--all] [--ff] [--cb] [--37]
                          [--passwords PASSWORDS] [--driver DRIVER]
                          [--downloads-folder DOWNLOADS_FOLDER]
                          [--browser {chrome,firefox,opera,ie}] [--quiet]
