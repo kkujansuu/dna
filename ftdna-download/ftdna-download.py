@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
 import os
 import time
@@ -18,16 +18,30 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def main(args):
 
-    driver = webdriver.Chrome(args.driver)
+    if args.browser == "chrome":    
+        if args.driver is None: args.driver = "./chromedriver"
+        driver = webdriver.Chrome(args.driver)
+    if args.browser == "firefox":   
+        if args.driver is None: args.driver = "./geckodriver"
+        driver = webdriver.Firefox(args.driver)
+    if args.browser == "opera":     
+        if args.driver is None: args.driver = "./operadriver"
+        driver = webdriver.Opera(args.driver)
+    if args.browser == "ie":        
+        if args.driver is None: args.driver = "./IEDriverServer.exe"
+        driver = webdriver.Ie(args.driver)
     
-    driver.implicitly_wait(60)
-    driver.set_page_load_timeout(60)
+    try:
+        driver.implicitly_wait(60)
+        driver.set_page_load_timeout(60)
 
-    for line in open("passwords.txt"):
-        if line.strip() == "": continue
-        kitnum,password = line.split()
-        if not args.kit or kitnum == args.kit:
-            download(args,driver,kitnum,password)
+        for line in open(args.passwords):
+            if line.strip() == "": continue
+            kitnum,password = line.split()
+            if not args.kit or kitnum == args.kit:
+                download(args,driver,kitnum,password)
+    finally:
+        driver.quit()
 
 def download(args,driver,kitnum,password):
     def click(element_selector):
@@ -52,25 +66,25 @@ def download(args,driver,kitnum,password):
     def wait(fname):
         i = 0
         while not os.path.exists(fname):
-            print "[%s s] Waiting for %s" % (i,fname)
+            print("[{} s] Waiting for {}".format(i,fname))
             time.sleep(5)
             i += 5
-        print "Done:", fname
+        print("Done: {}".format(fname))
     
     def download_ff():
-        print "Downloading,", ff_fname
+        print("Downloading {}".format(ff_fname))
         driver.get("https://www.familytreedna.com/my/familyfinder/")
         click("#download-csv")
         wait(ff_fname)
     
     def download_cb():
-        print "Downloading,", cb_fname
+        print("Downloading {}".format(cb_fname))
         driver.get("https://www.familytreedna.com/my/family-finder/chromosome-browser")
         click("#dwnLdAllExcel")
         wait(cb_fname)
 
     def download_a37():
-        print "Downloading,", a37_fname
+        print("Downloading {}".format(a37_fname))
         driver.get("https://www.familytreedna.com/my/family-finder/downloads.aspx")
         click("#Content_MainContent_lbAutosomal37")
         wait(a37_fname)
@@ -84,21 +98,21 @@ def download(args,driver,kitnum,password):
     if args.ff:
         ff_fname = dirname+"{}_Family_Finder_Matches_{}.csv".format(kitnum,date)
         if os.path.exists(ff_fname):
-            print "Already exists:", ff_fname
+            print("Already exists: {}".format(ff_fname))
         else:
             download_ff()
     
     if args.cb:
         cb_fname = dirname+"{}_Chromosome_Browser_Results_{}.csv".format(kitnum,date)
         if os.path.exists(cb_fname):
-            print "Already exists:", cb_fname
+            print("Already exists: {}".format(cb_fname))
         else:
             download_cb()
 
     if args.a37:
         a37_fname = dirname+"{}_Autosomal_o37_Results_{}.csv.gz".format(kitnum,date)
         if os.path.exists(a37_fname):
-            print "Already exists:", a37_fname
+            print("Already exists: {}".format(a37_fname))
         else:
             download_a37()
 
@@ -114,9 +128,8 @@ if __name__ == "__main__":
     parser.add_argument("--ff",action="store_true",default=False)
     parser.add_argument("--cb",action="store_true",default=False)
     parser.add_argument("--37",action="store_true",default=False,dest="a37")
-    parser.add_argument("--37x",action="store_true",default=False,dest="x37")
     parser.add_argument("--passwords",default="passwords.txt")
-    parser.add_argument("--driver",default="./chromedriver")
+    parser.add_argument("--driver") #,default="./chromedriver")
     parser.add_argument("--downloads-folder",default="$HOME/Downloads")
     parser.add_argument("--browser",choices=["chrome","firefox","opera","ie"],default="chrome")
     parser.add_argument("--quiet",action="store_true",default=False)
@@ -124,12 +137,10 @@ if __name__ == "__main__":
     if args.ff: args.all = False
     if args.cb: args.all = False
     if args.a37: args.all = False
-    if args.x37: args.all = False
     if args.all:
         args.ff = True
         args.cb = True
         args.a37 = True
-        args.x37 = True
     #print args
 
     main(args)
