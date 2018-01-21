@@ -5,10 +5,10 @@ Komentoriviohjelma, jolla voi ladata tiedostoja automaattisesti Family Tree DNA:
 
 Käyttää Seleniumia (http://www.seleniumhq.org/, https://pypi.python.org/pypi/selenium) ohjaamaan selainta (esim. Chrome, Firefox, Opera, Internet Explorer). Myös vastaava webdriver (chromedriver tms) pitää asentaa.
 
-Asennus: 
+<h4>Asennus:</h4>
 Lataa ftdna-download.py johonkin hakemistoon. Webdriver-binääri (chromedriver, geckodriver, operadriver, IEDriverServer.exe) tulee tallettaa samaan hakemistoon.
 
-Käyttö:
+<h4>Käyttö:</h4>
 <pre>
 sage: ftdna-download.py [-h] [--kit KIT] [--all] [--ff] [--cb] [--37]
                          [--passwords PASSWORDS] [--driver DRIVER]
