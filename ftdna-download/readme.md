@@ -5,12 +5,15 @@ Komentoriviohjelma, jolla voi ladata tiedostoja automaattisesti Family Tree DNA:
 
 Käyttää Seleniumia (http://www.seleniumhq.org/, https://pypi.python.org/pypi/selenium) ohjaamaan selainta (esim. Chrome, Firefox, Opera, Internet Explorer). Myös vastaava webdriver (chromedriver tms) pitää asentaa.
 
+Asennus: 
 Lataa ftdna-download.py johonkin hakemistoon. Webdriver-binääri (chromedriver, geckodriver, operadriver, IEDriverServer.exe) tulee tallettaa samaan hakemistoon.
 
+Käyttö:
 <pre>
-usage: python2 ftdna-download.py [-h] [--kit KIT] [--all] [--ff] [--cb] [--37] 
-                [--passwords PASSWORDS] [--driver DRIVER]
-                [--downloads-folder DOWNLOADS_FOLDER] [--quiet]
+sage: ftdna-download.py [-h] [--kit KIT] [--all] [--ff] [--cb] [--37]
+                         [--passwords PASSWORDS] [--driver DRIVER]
+                         [--downloads-folder DOWNLOADS_FOLDER]
+                         [--browser {chrome,firefox,opera,ie}] [--quiet]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -22,7 +25,9 @@ optional arguments:
   --passwords PASSWORDS
   --driver DRIVER
   --downloads-folder DOWNLOADS_FOLDER
+  --browser {chrome,firefox,opera,ie}
   --quiet
+
 </pre>
 
 Selain tulee konfiguroida niin, että se tekee lataukset automaattisesti hakemistoon Downloads eikä kysy mihin talletetaan. 
@@ -44,4 +49,3 @@ nnnnnn_Autosomal_o37_Results_yyyymmdd.csv.gz
 Jos haluaa hakea vain jonkin näistä, voi antaa parametrin --ff, --cb tai --37, jolloin haetaan vain vastaava tiedosto.
 Samoin jos haluaa vain jonkin kitin tiedostot, voi kit-numeron antaa parametrissa --kit
 
-Ohjelma toimii vain Python 2:lla, sillä Selenium tukee vain sitä.
