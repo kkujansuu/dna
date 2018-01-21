@@ -1,0 +1,19 @@
+{
+    "content_scripts": [
+        "content.js"
+    ], 
+    "description": "FTDNA family tree to Gedcom", 
+    "creator": "Kari Kujansuu (kari.kujansuu@gmail.com)", 
+    "background_scripts": [
+        "main.js"
+    ], 
+    "homepage_url": "https://dl.dropboxusercontent.com/u/14633653/ftdna_gedcom/index.html", 
+    "version": "1.1", 
+    "framework_package_id": "dev", 
+    "browser_button": {
+        "caption": "FTDNA family tree to Gedcom", 
+        "tooltipText": "FTDNA family tree to Gedcom", 
+        "icon": "icons/gedcom.png"
+    }, 
+    "name": "FTDNA family tree to Gedcom"
+}
